@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import style from "./WishList.module.css";
 import { WishListContext } from "../../Context/WishListContext";
-
 import Spinner from "../Spinner/Spinner";
 import { CartContext } from "../../Context/CartContext";
 import { Link } from "react-router-dom";
@@ -13,8 +12,6 @@ export default function WishList() {
   const { userData } = useContext(UserContext);
   const { getCart, addToCart } = useContext(CartContext);
 
-  // console.log(wishList);
-
   useEffect(() => {
     getUserWishList();
     getCart();
@@ -25,7 +22,9 @@ export default function WishList() {
       <div className="p-10">
         <h1 className="text-3xl py-4">WishList</h1>
         <div className="w-5/6 mx-auto flex flex-wrap justify-center py-4 gap-5 items-center">
-          {wishList ? (
+          {wishList === null ? (
+            <Spinner />
+          ) : (
             wishList?.map((item) =>
               item && item.category ? (
                 <div
@@ -62,7 +61,7 @@ export default function WishList() {
                     </button>
                     <button
                       onClick={() => deleteFromWishList(item._id)}
-                      className="w-full rounded-md btn p-1 bg-red-600 text-white hover:text-red-600 font-medium hover:bg-white hover:border duration-500 hover:border-red-500 transition-colors"
+                      className="w-full rounded-md btn p-1 bg-red-600 text-white hover:text-red-600 font-medium hover:bg-white hover:border duration-500 hover:border-red-600 transition-colors"
                     >
                       Delete From Wishlist
                     </button>
@@ -70,10 +69,6 @@ export default function WishList() {
                 </div>
               ) : null
             )
-          ) : (
-            <>
-              <Spinner />
-            </>
           )}
         </div>
       </div>
