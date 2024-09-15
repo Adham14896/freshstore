@@ -42,40 +42,42 @@ export default function Navbar() {
                 isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
               } md:flex flex-col md:flex-row items-center md:max-h-none md:opacity-100 space-x-5`}
             >
-              <ul className="flex flex-col md:flex-row space-x-2">
-                <li>
-                  <NavLink
-                    className="transition-colors hover:text-green-500"
-                    to=""
-                  >
-                    Home
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    className="transition-colors hover:text-green-500"
-                    to="categories"
-                  >
-                    Categories
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    className="transition-colors hover:text-green-500"
-                    to="brands"
-                  >
-                    Brands
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    className="transition-colors hover:text-green-500"
-                    to="allorders"
-                  >
-                    Orders
-                  </NavLink>
-                </li>
-              </ul>
+              {userData && (
+                <ul className="flex flex-col md:flex-row space-x-2">
+                  <li>
+                    <NavLink
+                      className="transition-colors hover:text-green-500"
+                      to=""
+                    >
+                      Home
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      className="transition-colors hover:text-green-500"
+                      to="categories"
+                    >
+                      Categories
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      className="transition-colors hover:text-green-500"
+                      to="brands"
+                    >
+                      Brands
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      className="transition-colors hover:text-green-500"
+                      to="allorders"
+                    >
+                      Orders
+                    </NavLink>
+                  </li>
+                </ul>
+              )}
             </div>
           </div>
 
