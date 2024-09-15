@@ -5,10 +5,12 @@ import { WishListContext } from "../../Context/WishListContext";
 import Spinner from "../Spinner/Spinner";
 import { CartContext } from "../../Context/CartContext";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../Context/UserContext";
 
 export default function WishList() {
   const { wishList, getUserWishList, deleteFromWishList } =
     useContext(WishListContext);
+  const { userData } = useContext(UserContext);
   const { getCart, addToCart } = useContext(CartContext);
 
   // console.log(wishList);
@@ -16,7 +18,7 @@ export default function WishList() {
   useEffect(() => {
     getUserWishList();
     getCart();
-  }, []);
+  }, [userData]);
 
   return (
     <>
