@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.active {
+  @apply text-green-500 font-bold;
+}
+
+.product {
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.product:hover {
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  border: 0.5px solid #22c55e;
+  transition: all 0.5s;
+}
+
+.product .btns {
+  transition: all 0.7s;
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.product:hover .btns {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.category {
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.product:hover .fa-heart {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.category:hover {
+  @apply text-green-500 transition-colors duration-700;
+}
+
+.category:hover .category-img {
+  @apply scale-110  transition-transform duration-700;
+}
+
+.navbar-menu {
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  overflow: hidden;
+}
+
+.max-h-0 {
+  max-height: 0;
+  opacity: 0;
+}
+
+.max-h-96 {
+  max-height: 24rem; /* Arbitrary large enough height for the content */
+  opacity: 1;
+}
+
+.md\\:max-h-none {
+  max-height: none;
+}
+
+.md\\:opacity-100 {
+  opacity: 1;
+}

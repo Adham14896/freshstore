@@ -1,0 +1,13 @@
+.navbarMenu {
+  display: none;
+}
+
+.navbarMenu.open {
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .navbarMenu {
+    display: flex;
+  }
+}
