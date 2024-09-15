@@ -6,7 +6,7 @@ import CategoriesSlider from "../CategorySlider/CategoriesSlider";
 import MainSlider from "../MainSlider/MainSlider";
 import { CartContext } from "../../Context/CartContext";
 import useProducts from "../../Hooks/useProducts";
-
+import { WishListContext } from "../../Context/WishListContext";
 import { UserContext } from "../../Context/UserContext";
 
 export default function Home() {
