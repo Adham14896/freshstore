@@ -7,7 +7,6 @@ export default function UserContextProvider({ children }) {
   const [userData, setUserData] = useState(null);
   const [userId, setUserId] = useState(null);
   const [username, setUserName] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   async function verifyUser() {
     const headers = {
@@ -75,8 +74,6 @@ export default function UserContextProvider({ children }) {
         verifyUser,
         userId,
         setUserId,
-        isLoggedIn,
-        setIsLoggedIn,
         username,
       }}
     >
