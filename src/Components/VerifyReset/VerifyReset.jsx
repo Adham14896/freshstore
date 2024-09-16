@@ -44,8 +44,8 @@ export default function VerifyReset() {
 
   return (
     <>
-      <div className="w-1/2 mx-auto">
-        <h1>Verify reset code</h1>
+      <div className="w-1/2 pt-10 mx-auto">
+        <h1 className="text-center pt-5 text-2xl">Verify reset code</h1>
         <form onSubmit={formik.handleSubmit} className="pt-10">
           <div className="relative z-0 w-full mb-5 group">
             <input
