@@ -24,7 +24,7 @@ export default function Login() {
         values
       );
       localStorage.setItem("userToken", data.token);
-      SetIsLoggedIn(true);
+
       verifyUser();
 
       navigate("/");
@@ -34,6 +34,7 @@ export default function Login() {
       getCart();
       getUserWishList();
       setIsLoading(false);
+      SetIsLoggedIn(true);
     } catch (err) {
       setIsLoading(false);
       setError(err.response.data.message);
