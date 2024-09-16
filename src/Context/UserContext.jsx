@@ -60,7 +60,7 @@ export default function UserContextProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    if (localStorage.getItem("userToken") && isLoggedIn) {
+    if (localStorage.getItem("userToken")) {
       setUserData(localStorage.getItem("userToken"));
       setUserId(localStorage.getItem("userId"));
     }
