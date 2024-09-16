@@ -73,15 +73,17 @@ function WishListContextProvider({ children }) {
   }
 
   async function getUserWishList() {
-    const { data } = await axios.get(
-      "https://ecommerce.routemisr.com/api/v1/wishlist",
-      {
-        headers,
-      }
-    );
-    setWishList(data.data);
-
-    console.log(wishList);
+    try {
+      const { data } = await axios.get(
+        "https://ecommerce.routemisr.com/api/v1/wishlist",
+        {
+          headers,
+        }
+      );
+      setWishList(data.data);
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   function isProductInWishList(productId) {
