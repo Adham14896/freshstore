@@ -7,18 +7,7 @@ export default function UserContextProvider({ children }) {
   const [userData, setUserData] = useState(null);
   const [userId, setUserId] = useState(null);
   const [username, setUserName] = useState(null);
-  // async function verifyUser(headers) {
-  //   const { data } = await axios.get(
-  //     "https://ecommerce.routemisr.com/api/v1/auth/verifyToken",
-  //     {
-  //       headers,
-  //     }
-  //   );
-  //   console.log(data.decoded);
-  //   setUserId(data.decoded);
-  //   localStorage.setItem("userId", data.decoded);
-  //   console.log(userId);
-  // }
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   async function verifyUser() {
     const headers = {
@@ -71,7 +60,7 @@ export default function UserContextProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    if (localStorage.getItem("userToken")) {
+    if (localStorage.getItem("userToken") && isLoggedIn) {
       setUserData(localStorage.getItem("userToken"));
       setUserId(localStorage.getItem("userId"));
     }
@@ -86,6 +75,8 @@ export default function UserContextProvider({ children }) {
         verifyUser,
         userId,
         setUserId,
+        isLoggedIn,
+        setIsLoggedIn,
         username,
       }}
     >

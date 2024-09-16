@@ -5,7 +5,8 @@ import { UserContext } from "../../Context/UserContext";
 import { CartContext } from "../../Context/CartContext";
 
 export default function Navbar() {
-  const { userData, setUserData, setUserId } = useContext(UserContext);
+  const { userData, setUserData, setUserId, isLoggedIn, setIsLoggedIn } =
+    useContext(UserContext);
   const { cart } = useContext(CartContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -18,6 +19,7 @@ export default function Navbar() {
   function logOut() {
     localStorage.removeItem("userToken");
     localStorage.removeItem("userId");
+    setIsLoggedIn(false);
     setUserId(null);
     setUserData(null);
     navigate("/login");
@@ -42,7 +44,7 @@ export default function Navbar() {
                 isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
               } md:flex flex-col md:flex-row items-center md:max-h-none md:opacity-100 space-x-5`}
             >
-              {userData && (
+              {userData && isLoggedIn && (
                 <ul className="flex flex-col md:flex-row space-x-2">
                   <li>
                     <NavLink
@@ -88,7 +90,7 @@ export default function Navbar() {
             } md:max-h-none md:opacity-100 items-center md:flex flex-col md:flex-row space-x-5`}
           >
             <ul className="flex gap-5 flex-col md:flex-row space-x-2">
-              {userData ? (
+              {userData && isLoggedIn ? (
                 <>
                   <li>
                     <NavLink to="wishlist">

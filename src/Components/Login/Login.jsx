@@ -12,7 +12,8 @@ export default function Login() {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  const { setUserData, verifyUser, userId } = useContext(UserContext);
+  const { setUserData, verifyUser, userId, SetIsLoggedIn } =
+    useContext(UserContext);
   const { getCart } = useContext(CartContext);
   const { getUserWishList } = useContext(WishListContext);
   async function handleLogin(values) {
@@ -23,7 +24,7 @@ export default function Login() {
         values
       );
       localStorage.setItem("userToken", data.token);
-
+      SetIsLoggedIn(true);
       verifyUser();
 
       navigate("/");
