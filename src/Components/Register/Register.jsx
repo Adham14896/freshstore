@@ -19,11 +19,11 @@ export default function Register() {
         values
       );
 
-      localStorage.setItem("userToken", data.token);
-      localStorage.setItem("userId", userId);
+      // localStorage.setItem("userToken", data.token);
+      // localStorage.setItem("userId", userId);
       navigate("/login");
-      setUserData(data.token);
-      setUserId(localStorage.getItem("userId"));
+      // setUserData(data.token);
+      // setUserId(localStorage.getItem("userId"));
       setIsLoading(false);
       console.log(data);
     } catch (err) {
